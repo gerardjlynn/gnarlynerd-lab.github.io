@@ -4,155 +4,358 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerard Lynn</title>
-    <meta name="description" content="Gerard Lynn — technologist based in New York.">
+    <meta name="description" content="Gerard Lynn, technologist based in New York.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Source+Serif+4:opsz,wght@8..60,300;8..60,400;8..60,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg: #0a0a0a;
-            --fg: #e8e4df;
-            --fg-dim: #8a8580;
-            --fg-faint: #4a4744;
-            --accent: #c4956a;
-            --accent-dim: #8a6a4a;
-            --border: #2a2724;
-            --serif: 'Source Serif 4', Georgia, serif;
+            --bg: #f6f6f4;
+            --ink: #1a1b1d;
+            --bio: #43454a;
+            --body-work: #4a4c51;
+            --body-research: #5c5e63;
+            --muted: #9a9da3;
+            --meta: #95989e;
+            --note: #87898f;
+            --border: #e8e8e4;
+            --accent: #5b4bd6;
+            --accent-tint: #d5d1f2;
+            --serif: 'Spectral', Georgia, serif;
             --mono: 'IBM Plex Mono', 'Menlo', monospace;
-            --max-w: 680px;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { font-size: 17px; }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; }
 
         body {
             background: var(--bg);
-            color: var(--fg);
+            color: var(--ink);
             font-family: var(--serif);
-            line-height: 1.7;
-            -webkit-font-smoothing: antialiased;
-            padding: 0 1.5rem;
         }
+
+        a { transition: color .18s ease, border-color .18s ease; }
 
         .container {
-            max-width: var(--max-w);
+            max-width: 680px;
             margin: 0 auto;
-            padding: 6rem 0;
+            padding: 104px 32px 128px;
         }
 
+        /* Sundial */
+        .sundial-line {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            margin-bottom: 26px;
+        }
+
+        .sundial {
+            position: relative;
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            flex-shrink: 0;
+        }
+
+        .sundial .shadow {
+            position: absolute;
+            left: calc(50% - 1px);
+            top: 50%;
+            width: 2px;
+            height: 15px;
+            background: linear-gradient(var(--accent), rgba(91,75,214,0));
+            transform-origin: top center;
+            animation: gnomon-sweep 20s ease-in-out infinite alternate;
+        }
+
+        .sundial .sun {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: var(--accent);
+            animation: sun-pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes gnomon-sweep {
+            0%   { transform: rotate(18deg); }
+            100% { transform: rotate(162deg); }
+        }
+
+        @keyframes sun-pulse {
+            0%, 100% { box-shadow: 0 0 0 4px rgba(91,75,214,0.16); }
+            50%      { box-shadow: 0 0 0 7px rgba(91,75,214,0.09); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .sundial .shadow, .sundial .sun { animation: none; }
+        }
+
+        .tagline {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.06em;
+            color: var(--accent);
+        }
+
+        /* Name */
         h1 {
             font-family: var(--serif);
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
+            font-weight: 300;
+            font-size: 46px;
+            line-height: 1.08;
+            letter-spacing: -0.015em;
+            color: var(--ink);
+            margin: 0;
         }
 
-        .capsule {
-            font-size: 1rem;
-            color: var(--fg-dim);
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
+        h1 .dot { color: var(--accent); }
+
+        .rule {
+            width: 56px;
+            height: 2px;
+            background: var(--accent);
+            margin: 18px 0 26px;
         }
 
-        .capsule:last-of-type {
-            margin-bottom: 3rem;
+        /* Bio */
+        .bio {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: 22px;
+            line-height: 1.55;
+            color: var(--bio);
+            margin: 0;
+            max-width: 52ch;
         }
 
-        .capsule.lede {
-            font-size: 1.15rem;
-            color: var(--fg);
+        .bio .underline { border-bottom: 2px solid var(--accent); }
+
+        .credential {
+            font-family: var(--mono);
+            font-size: 12px;
+            letter-spacing: 0.06em;
+            color: var(--muted);
+            margin: 20px 0 0;
         }
 
+        /* Nav */
+        nav {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 26px;
+            margin-top: 34px;
+        }
+
+        nav a {
+            font-family: var(--mono);
+            font-size: 11px;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--bio);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-tint);
+            padding-bottom: 3px;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        /* Section labels */
         .section-label {
             font-family: var(--mono);
-            font-size: 0.78rem;
-            font-weight: 500;
-            letter-spacing: 0.08em;
+            font-size: 11px;
+            letter-spacing: 0.16em;
             text-transform: uppercase;
-            color: var(--fg-faint);
-            margin-bottom: 1rem;
-            margin-top: 2.5rem;
-        }
-
-        .section-label:first-of-type {
-            margin-top: 0;
-        }
-
-        ul {
-            list-style: none;
-            margin-bottom: 1rem;
-        }
-
-        li {
-            margin-bottom: 0.5rem;
-            font-size: 1rem;
-        }
-
-        li a {
-            color: var(--fg);
-            text-decoration: none;
-            border-bottom: 1px solid var(--border);
-            transition: color 0.2s, border-color 0.2s;
-        }
-
-        li a:hover {
             color: var(--accent);
-            border-color: var(--accent-dim);
         }
 
-        li .note {
-            color: var(--fg-faint);
-            font-size: 0.9rem;
-        }
+        .section-work { margin-top: 60px; }
+        .section-research { margin-top: 48px; margin-bottom: 12px; }
 
-        .links {
-            margin-top: 3rem;
-            padding-top: 2rem;
+        /* Cards */
+        article {
             border-top: 1px solid var(--border);
+            border-left: 2px solid transparent;
+            transition: padding-left .18s ease, border-left-color .18s ease;
+        }
+
+        article.work { padding: 24px 14px; }
+        article.research { padding: 15px 14px; }
+
+        article.work:hover {
+            padding-left: 24px;
+            border-left-color: var(--accent);
+        }
+
+        article.research:hover {
+            padding-left: 22px;
+            border-left-color: var(--accent);
+        }
+
+        article.work h3 {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: 24px;
+            color: var(--ink);
+            margin: 0 0 9px;
+        }
+
+        article.work p {
+            font-family: var(--serif);
+            font-size: 17px;
+            line-height: 1.62;
+            color: var(--body-work);
+            margin: 0;
+            max-width: 58ch;
+        }
+
+        .card-meta {
             font-family: var(--mono);
-            font-size: 0.8rem;
+            font-size: 11px;
+            letter-spacing: 0.04em;
+            color: var(--meta);
+            margin-top: 12px;
+        }
+
+        .research-head {
             display: flex;
-            gap: 2rem;
+            align-items: baseline;
+            gap: 12px;
             flex-wrap: wrap;
         }
 
-        .links a {
-            color: var(--fg-dim);
-            text-decoration: none;
-            border-bottom: 1px solid var(--fg-faint);
-            transition: color 0.2s;
+        article.research h3 {
+            font-family: var(--serif);
+            font-weight: 400;
+            font-size: 19px;
+            color: var(--ink);
+            margin: 0;
         }
 
-        .links a:hover {
-            color: var(--accent);
+        article.research h3 a {
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-tint);
+            padding-bottom: 1px;
         }
+
+        article.research h3 a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
+        .tags {
+            font-family: var(--mono);
+            font-size: 10.5px;
+            letter-spacing: 0.04em;
+            color: var(--muted);
+        }
+
+        article.research p {
+            font-family: var(--serif);
+            font-size: 15.5px;
+            line-height: 1.55;
+            color: var(--body-research);
+            margin: 5px 0 0;
+            max-width: 62ch;
+        }
+
+        /* Contact */
+        .contact {
+            margin-top: 44px;
+            padding-top: 26px;
+            border-top: 1px solid var(--border);
+        }
+
+        .contact a {
+            font-family: var(--serif);
+            font-size: 22px;
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent);
+            padding-bottom: 2px;
+        }
+
+        .contact a:hover { color: var(--accent); }
 
         @media (max-width: 600px) {
-            html { font-size: 16px; }
-            .container { padding: 4rem 0; }
+            .container { padding: 64px 22px 96px; }
+            h1 { font-size: 36px; }
+            .bio { font-size: 19px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Gerard Lynn</h1>
 
-        <p class="capsule lede">Agents are starting to act on our behalf. The unsolved problem isn't whether they can — it's whether we can trust them to, and trust is a structure, not a feeling: identity, permissions, consent, legibility. That structure is what I build.</p>
-
-        <p class="capsule">At Penguin Random House since 2012, I built the company's first production LLM platform on Azure OpenAI and architected unified identity across B2B and consumer applications on Ping/DaVinci. The same problem now applies to AI agents, which act for people and therefore have to prove it: whose behalf, within what bounds, auditable afterward.</p>
-
-        <p class="capsule">I came to the work through interaction design at NYU's ITP.</p>
-
-        <p class="section-label">Selected work</p>
-        <ul>
-            <li><a href="https://github.com/gerardjlynn/gnomon">Gnomon</a> <span class="note">— an article/talk split for the LLM wiki pattern: articles hold the current statement, talk pages hold the working-out, and the LLM tends structure as a wiki gnome. MCP server, static site, example vault.</span></li>
-        </ul>
-
-        <div class="links">
-            <a href="https://github.com/gerardjlynn">GitHub</a>
-            <a href="https://www.linkedin.com/in/gerard-lynn-04757a3/">LinkedIn</a>
-            <a href="mailto:lynn.gerard@gmail.com">Contact</a>
+        <div class="sundial-line">
+            <span class="sundial">
+                <span class="shadow"></span>
+                <span class="sun"></span>
+            </span>
+            <span class="tagline">trust is a structure, not a feeling</span>
         </div>
+
+        <h1>Gerard Lynn<span class="dot">.</span></h1>
+        <div class="rule"></div>
+
+        <p class="bio">Technologist building systems across enterprise, media, and emerging technologies, currently researching <span class="underline">autonomous agent architectures</span> and collaborative interpretation platforms.</p>
+        <p class="credential">MPS · NYU Interactive Telecommunications Program</p>
+
+        <nav>
+            <a href="https://github.com/gerardjlynn" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://www.linkedin.com/in/gerard-lynn-04757a3/" target="_blank" rel="noopener">LinkedIn</a>
+            <a href="mailto:lynn.gerard@gmail.com">Contact</a>
+        </nav>
+
+        <div class="section-work">
+            <span class="section-label">Selected work</span>
+        </div>
+
+        <article class="work">
+            <h3>Enterprise System Integration</h3>
+            <p>Led digital transformation at the world's largest trade publisher, including an internal ChatGPT deployment and a unified identity system across four enterprise applications.</p>
+            <div class="card-meta">Penguin Random House · 2012–Present</div>
+        </article>
+
+        <article class="work">
+            <h3>Interactive Systems &amp; Project Leadership</h3>
+            <p>Twenty-five years leading big, tangled technology projects, from AI wayfinding for emergency response to large-scale digital transformation and interactive media platforms.</p>
+            <div class="card-meta">Multiple industries · 1997–Present</div>
+        </article>
+
+        <div class="section-research">
+            <span class="section-label">Research &amp; experiments</span>
+        </div>
+
+        <article class="research">
+            <div class="research-head">
+                <h3><a href="https://github.com/gerardjlynn/gnomon" target="_blank" rel="noopener">Gnomon</a></h3>
+                <span class="tags">Markdown vaults · MCP server</span>
+            </div>
+            <p>Wiki-style context management for teams of humans and LLM agents: articles hold the settled context, talk pages hold the working-out, and an LLM gnome keeps it all consistent.</p>
+        </article>
+
+        <article class="research">
+            <div class="research-head">
+                <h3><a href="https://github.com/gerardjlynn/sundial" target="_blank" rel="noopener">Sundial</a></h3>
+                <span class="tags">TypeScript · Graph-canonical</span>
+            </div>
+            <p>Agent-first authoring surface that treats a web app as a graph of components, props, and effects.</p>
+        </article>
+
+        <div class="contact">
+            <a href="mailto:lynn.gerard@gmail.com">lynn.gerard@gmail.com</a>
+        </div>
+
     </div>
+
 </body>
 </html>
