@@ -50,8 +50,17 @@
         .capsule {
             font-size: 1rem;
             color: var(--fg-dim);
-            margin-bottom: 3rem;
+            margin-bottom: 1.5rem;
             line-height: 1.8;
+        }
+
+        .capsule:last-of-type {
+            margin-bottom: 3rem;
+        }
+
+        .capsule.lede {
+            font-size: 1.15rem;
+            color: var(--fg);
         }
 
         .section-label {
@@ -128,10 +137,19 @@
     <div class="container">
         <h1>Gerard Lynn</h1>
 
-        <p class="capsule">Engineering manager and technical lead at Penguin Random House since 2012, where I built the company's first production LLM platform on Azure OpenAI and architected unified identity management across multiple enterprise applications. Before that, 15 years of consulting, interaction design, and project management across agencies and enterprise clients including Deutsche Bank, JP Morgan Chase, Ziff-Davis, and the New Museum. Taught interactive design at Cooper Union from 1997 to 2000. MPS from NYU's Interactive Telecommunications Program, BA in English from Kenyon College.</p>
+        <p class="capsule lede">Agents are starting to act on our behalf. The unsolved problem isn't whether they can — it's whether we can trust them to, and trust is a structure, not a feeling: identity, permissions, consent, legibility. That structure is what I build.</p>
+
+        <p class="capsule">At Penguin Random House since 2012, I built the company's first production LLM platform on Azure OpenAI and architected unified identity across B2B and consumer applications on Ping/DaVinci. The same problem now applies to AI agents, which act for people and therefore have to prove it: whose behalf, within what bounds, auditable afterward.</p>
+
+        <p class="capsule">I came to the work through interaction design at NYU's ITP.</p>
+
+        <p class="section-label">Selected work</p>
+        <ul>
+            <li><a href="https://github.com/gerardjlynn/gnomon">Gnomon</a> <span class="note">— an article/talk split for the LLM wiki pattern: articles hold the current statement, talk pages hold the working-out, and the LLM tends structure as a wiki gnome. MCP server, static site, example vault.</span></li>
+        </ul>
 
         <div class="links">
-            <a href="https://github.com/gnarlynerd-lab">GitHub</a>
+            <a href="https://github.com/gerardjlynn">GitHub</a>
             <a href="https://www.linkedin.com/in/gerard-lynn-04757a3/">LinkedIn</a>
             <a href="mailto:lynn.gerard@gmail.com">Contact</a>
         </div>
