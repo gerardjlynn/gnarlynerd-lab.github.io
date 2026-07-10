@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerard Lynn</title>
-    <meta name="description" content="Gerard Lynn, technologist based in New York.">
+    <meta name="description" content="Gerard Lynn builds identity and authorization infrastructure for the agent era. Trust is a structure, not a feeling.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;1,400&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
@@ -15,8 +15,8 @@
             --bio: #43454a;
             --body-work: #4a4c51;
             --body-research: #5c5e63;
-            --muted: #9a9da3;
-            --meta: #95989e;
+            --muted: #6d7076;
+            --meta: #6d7076;
             --note: #87898f;
             --border: #e8e8e4;
             --accent: #5b4bd6;
@@ -147,9 +147,11 @@
         .credential {
             font-family: var(--mono);
             font-size: 12px;
+            line-height: 1.7;
             letter-spacing: 0.06em;
             color: var(--muted);
             margin: 20px 0 0;
+            max-width: 60ch;
         }
 
         /* Nav */
@@ -180,9 +182,11 @@
         .section-label {
             font-family: var(--mono);
             font-size: 11px;
+            font-weight: 500;
             letter-spacing: 0.16em;
             text-transform: uppercase;
             color: var(--accent);
+            margin: 0;
         }
 
         .section-work { margin-top: 60px; }
@@ -276,6 +280,18 @@
             max-width: 62ch;
         }
 
+        /* Writing */
+        .writing-note {
+            font-family: var(--serif);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--body-research);
+            border-top: 1px solid var(--border);
+            padding: 15px 14px 0;
+            margin: 0;
+            max-width: 62ch;
+        }
+
         /* Contact */
         .contact {
             margin-top: 44px;
@@ -315,42 +331,58 @@
         <h1>Gerard Lynn<span class="dot">.</span></h1>
         <div class="rule"></div>
 
-        <p class="bio">Technologist building systems across enterprise, media, and emerging technologies, currently researching <span class="underline">autonomous agent architectures</span> and collaborative interpretation platforms.</p>
-        <p class="bio-secondary">I still code daily (Python, FastAPI, React, MySQL) and work across architecture, implementation, and workflow design.</p>
-        <p class="credential">MPS · NYU Interactive Telecommunications Program</p>
+        <p class="bio">I build identity and authorization infrastructure, and for the last three years I have been putting AI systems into production inside a global enterprise. My working thesis: as agents take over more of the work, <span class="underline">identity, permissions, and audit</span> become the layer everything else depends on. Trust is a structure, not a feeling.</p>
+        <p class="bio-secondary">Twenty-five years building enterprise software, including identity infrastructure (OAuth, OIDC, SAML, Ping Identity), production LLM systems, and B2B commerce. MPS, NYU Interactive Telecommunications Program. I also make art.</p>
+        <p class="credential">Currently working on: delegated authorization for AI agents, OAuth and token exchange, auditability, and the infrastructure that makes agent deployment survivable.</p>
 
         <nav>
+            <a href="#work">Work</a>
+            <a href="#projects">Projects</a>
+            <a href="#research">Research</a>
+            <a href="#writing">Writing</a>
             <a href="https://github.com/gerardjlynn" target="_blank" rel="noopener">GitHub</a>
             <a href="https://www.linkedin.com/in/gerard-lynn-04757a3/" target="_blank" rel="noopener">LinkedIn</a>
             <a href="mailto:lynn.gerard@gmail.com">Contact</a>
         </nav>
 
-        <div class="section-work">
-            <span class="section-label">Selected work</span>
+        <div class="section-work" id="work">
+            <h2 class="section-label">Selected work</h2>
         </div>
 
         <article class="work">
-            <h3>Enterprise System Integration</h3>
-            <p>Led digital transformation at the world's largest trade publisher, including an internal ChatGPT deployment and a unified identity system across four enterprise applications.</p>
-            <div class="card-meta">Penguin Random House · 2012–Present</div>
+            <h3>Enterprise LLM Platform</h3>
+            <p>Architected and shipped the internal AI platform for a global publishing house: FastAPI, React, Azure OpenAI, RAG over internal content, JWT-based access control, and per-user usage logging. In production across editorial and business workflows.</p>
+            <div class="card-meta">Production system · 2023–present</div>
         </article>
 
         <article class="work">
-            <h3>Interactive Systems &amp; Project Leadership</h3>
-            <p>Twenty-five years leading big, tangled technology projects, from AI wayfinding for emergency response to large-scale digital transformation and interactive media platforms.</p>
-            <div class="card-meta">Multiple industries · 1997–Present</div>
+            <h3>MCP Harness</h3>
+            <p>An MCP server platform giving AI agents structured, governed access to an enterprise codebase. Five domains: a tree-sitter code index (targeted symbol queries instead of full-file reads), Playwright browser testing, Jira integration with dry-run defaults, a documentation compiler on Claude on Bedrock that produces queryable models of routes and auth flows, and a Figma design-to-code bridge. Every write to a system of record is a proposal requiring human approval. Generalized from prototype to a configurable harness adoptable with a single project config. In active use on production accessibility remediation work. The premise: the bottleneck in enterprise AI development is not model capability but governed access, and that is an authorization problem.</p>
+            <div class="card-meta">Production system · 2026</div>
         </article>
 
-        <div class="section-research">
-            <span class="section-label">Research &amp; experiments</span>
+        <article class="work">
+            <h3>Identity Platform Unification</h3>
+            <p>Migrated two legacy authentication systems into a unified Ping Identity / DaVinci architecture serving four enterprise applications, including the delegation and flow design for B2B commerce login and user management.</p>
+            <div class="card-meta">Production system · Identity infrastructure</div>
+        </article>
+
+        <article class="work">
+            <h3>B2B Commerce Platform</h3>
+            <p>Senior engineer on the rebuild of a nine-figure B2B ordering platform: headless commerce, checkout and authorization flows, and the integration seam between commerce and identity.</p>
+            <div class="card-meta">Production system · Ongoing</div>
+        </article>
+
+        <div class="section-research" id="projects">
+            <h2 class="section-label">Projects</h2>
         </div>
 
         <article class="research">
             <div class="research-head">
                 <h3><a href="https://github.com/gerardjlynn/gnomon" target="_blank" rel="noopener">Gnomon</a></h3>
-                <span class="tags">Markdown vaults · MCP server</span>
+                <span class="tags">Open source · github.com/gerardjlynn</span>
             </div>
-            <p>Wiki-style context management for teams of humans and LLM agents: articles hold the settled context, talk pages hold the working-out, and an LLM gnome keeps it all consistent.</p>
+            <p>A research and writing vault framework: articles, sources, talk pages, and a librarian layer for compaction and navigation. Built for thinking in public with provenance intact.</p>
         </article>
 
         <article class="research">
@@ -360,6 +392,40 @@
             </div>
             <p>Agent-first authoring surface that treats a web app as a graph of components, props, and effects.</p>
         </article>
+
+        <article class="research">
+            <div class="research-head">
+                <h3>Digital Kinetic Systems (DKS)</h3>
+                <span class="tags">Working code · Research substrate</span>
+            </div>
+            <p>A multi-agent simulation framework implementing active inference (FastAPI, Mesa, PyMDP, Next.js). Agents with resource dynamics operate a simulated economy; the substrate for the stability research below.</p>
+        </article>
+
+        <div class="section-research" id="research">
+            <h2 class="section-label">Research</h2>
+        </div>
+
+        <article class="research">
+            <div class="research-head">
+                <h3>Adaptive Stability Architecture</h3>
+                <span class="tags">Provisional patent · Ongoing</span>
+            </div>
+            <p>A provisional-patented mechanism using Lyapunov stability as an internal state variable in multi-agent systems: a real, measurable stability margin that governs coupling strength, rather than a reported feeling. Part of current research into stable human-agent interaction.</p>
+        </article>
+
+        <article class="research">
+            <div class="research-head">
+                <h3>Coupling and Companion Agents</h3>
+                <span class="tags">Research · Ongoing</span>
+            </div>
+            <p>Research on human-agent coupling that refuses engagement optimization: prepared surfaces, no faked inwardness, legibility without performance. The 2026 regulatory turn on companion AI is selecting for exactly this design stance.</p>
+        </article>
+
+        <div class="section-research" id="writing">
+            <h2 class="section-label">Writing</h2>
+        </div>
+
+        <p class="writing-note">Essays on trust, identity, and AI agents. First pieces landing soon.</p>
 
         <div class="contact">
             <a href="mailto:lynn.gerard@gmail.com">lynn.gerard@gmail.com</a>
