@@ -379,15 +379,21 @@
         </article>
 
         <article class="work">
-            <h3>Agent Tooling and Developer Adoption</h3>
-            <p>Brought Claude Code on Amazon Bedrock into an engineering team, starting with QA and onboarding, then built the MCP servers it needed to reach real systems: test specifications assembled from tickets, requirements, and designs; an architecture model compiled from service codebases that anyone on the team can query for what depends on what, without reading the code.</p>
+            <h3>Architecture Knowledge Graph</h3>
+            <p>Built a queryable model connecting software architecture, requirements, implementation, tests, and design artifacts across an enterprise application portfolio. Developers can trace dependencies and impact through the code; managers, QA, and design can ask the same model about requirements, coverage, ownership, and how a proposed change propagates through the system.</p>
+            <div class="card-meta">Internal tooling · 2025–present</div>
+        </article>
+
+        <article class="work">
+            <h3>Test Specification Generator</h3>
+            <p>Built a tool for managers and QA that turns the artifacts already produced during development, including tickets, requirements, and designs, into structured test specifications. The goal is to make expected behavior and coverage explicit before testing begins, while keeping the resulting tests traceable back to the material they came from.</p>
             <div class="card-meta">Internal pilot · 2025–present</div>
         </article>
 
         <article class="work">
-            <h3>Policy-Governed Development</h3>
-            <p>A framework for agent-assisted work on existing production code, new features as well as repairs. It scans applications, classifies findings by repairability, and applies policy-governed changes autonomously. The core design problem is authorization: which agent actions are safe to auto-approve, which need a human, and how to make that decision auditable. Includes WCAG 2.1 AA accessibility scanning via Playwright, extends to security and code quality through pluggable reviewers, outputs SARIF for CI, and runs as a Claude Code plugin so findings land in the developer's existing workflow. Accessibility is the first domain; the reviewer interface is built to carry others.</p>
-            <div class="card-meta">Working prototype · 2026</div>
+            <h3>Automated Code Review</h3>
+            <p>Built an extensible review system that scans applications, identifies and classifies findings, and can remediate findings that are suitable for automated correction. Accessibility is the first implemented domain, using Playwright-based WCAG 2.1 AA checks; the same reviewer interface supports security and code-quality analysis. Results are emitted as SARIF for CI and exposed through a Claude Code plugin so review, triage, and remediation happen inside the developer workflow.</p>
+            <div class="card-meta">Production tooling · 2026</div>
         </article>
 
         <article class="work">
