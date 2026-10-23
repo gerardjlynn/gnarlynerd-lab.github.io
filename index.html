@@ -243,6 +243,20 @@
             max-width: 58ch;
         }
 
+        article.work h3 a,
+        .writing-note a {
+            color: var(--ink);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-tint);
+            padding-bottom: 1px;
+        }
+
+        article.work h3 a:hover,
+        .writing-note a:hover {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
         .card-meta {
             font-family: var(--mono);
             font-size: 11px;
@@ -412,29 +426,13 @@
             <h2 class="section-label">Projects</h2>
         </div>
 
-        <article class="research">
-            <div class="research-head">
-                <h3><a href="https://github.com/gerardjlynn/gnomon" target="_blank" rel="noopener">Gnomon</a></h3>
-                <span class="tags">Open source · github.com/gerardjlynn</span>
-            </div>
-            <p>A research and writing vault framework: articles, sources, talk pages, and a librarian layer for compaction and navigation. Built for thinking in public with provenance intact.</p>
+        <article class="work">
+            <h3><a href="https://github.com/gerardjlynn/warrant" target="_blank" rel="noopener">Warrant</a></h3>
+            <p>Delegated authority for an AI agent when several people must agree. Authority is checked on every call and can be withdrawn while the agent’s token is still valid; an audit log shows it appearing and disappearing in step with what people did.</p>
+            <div class="card-meta">Python · OpenFGA · Keycloak</div>
         </article>
 
-        <article class="research">
-            <div class="research-head">
-                <h3><a href="https://github.com/gerardjlynn/sundial" target="_blank" rel="noopener">Sundial</a></h3>
-                <span class="tags">TypeScript · Graph-canonical</span>
-            </div>
-            <p>Agent-first authoring surface that treats a web app as a graph of components, props, and effects.</p>
-        </article>
-
-        <article class="research">
-            <div class="research-head">
-                <h3>Digital Kinetic Systems (DKS)</h3>
-                <span class="tags">Working code · Research substrate</span>
-            </div>
-            <p>A multi-agent simulation framework implementing active inference (FastAPI, Mesa, PyMDP, Next.js). Agents with resource dynamics operate a simulated economy; the substrate for the stability research below.</p>
-        </article>
+        <p class="writing-note">Earlier open-source projects: <a href="https://github.com/gerardjlynn/gnomon" target="_blank" rel="noopener">Gnomon</a>, a research and writing vault framework, and <a href="https://github.com/gerardjlynn/sundial" target="_blank" rel="noopener">Sundial</a>, an agent-first authoring surface for web UI.</p>
 
         <div class="section-research" id="research">
             <h2 class="section-label">Research</h2>
